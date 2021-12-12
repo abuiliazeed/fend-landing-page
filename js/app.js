@@ -24,9 +24,10 @@
 */
 
 
-var sections = document.querySelectorAll('section')
-console.log(sections);
-
+var sections = [...document.querySelectorAll('section')];
+var navArray = [""];
+var navMenu = document.getElementById('navbar__list');
+// console.dir(sections);
 /**
  * End Global Variables
  * Start Helper Functions
@@ -42,6 +43,13 @@ console.log(sections);
 */
 
 // build the nav
+for (i = 0; i <= sections.length - 1; i++) {
+    var navItem = document.createElement('li');     // create li element.
+    navItem.innerHTML = sections[i].id;      // assigning text to li using array value.
+
+    navMenu.appendChild(navItem);     // append li to ul.
+}
+
 
 
 // Add class 'active' to section when near top of viewport
