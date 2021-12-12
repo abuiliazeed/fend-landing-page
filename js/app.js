@@ -24,6 +24,9 @@
 */
 
 
+var sections = document.querySelectorAll('section')
+console.log(sections);
+
 /**
  * End Global Variables
  * Start Helper Functions
