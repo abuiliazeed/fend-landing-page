@@ -16,7 +16,7 @@
     - When clicking an item from the navigation menu, the link should scroll to the appropriate section.
 
 ## Demo
-- check the latest Demo deployed on the cloud from this [link](https://dazzling-poincare-f75569.netlify.app/)
+- check the latest Demo deployed on the cloud from this [link](https://dazzling-poincare-f75569.netlify.app/) or the [mirror](https://abuiliazeed.github.io/fend-landing-page/)
 
 ## Usage
 - download the repo as a zip or clone it using git clone https://github.com/abuiliazeed/fend-landing-page.git
