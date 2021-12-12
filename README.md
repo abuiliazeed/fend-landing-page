@@ -2,11 +2,11 @@
 
 ## Table of Contents
 
-* [Project\ description](#Project\ description)
+* [Description](#Description)
 * [Usage](#Usage)
 * [Dependencies](#Dependencies)
 
-## Project description
+## Description
 - This is an interactive landing page it has the below features:
     - Navigation is built dynamically 
     - It should be clear which section is being viewed while scrolling through the page.
