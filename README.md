@@ -3,6 +3,7 @@
 ## Table of Contents
 
 * [Description](#Description)
+* [Demo](#Demo)
 * [Usage](#Usage)
 * [Dependencies](#Dependencies)
 
