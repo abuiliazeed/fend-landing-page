@@ -45,7 +45,8 @@ var navMenu = document.getElementById('navbar__list');
 // build the nav
 for (i = 0; i <= sections.length - 1; i++) {
     var navItem = document.createElement('li');     // create li element.
-    navItem.innerHTML = `<a href=#${sections[i].id}>${sections[i].id}</a>`;      // assigning text to li using array value.
+    // navItem.innerHTML = `<a href=#${sections[i].id}>${sections[i].id}</a>`;      // assigning text to li using array value.
+    navItem.innerHTML = `<a href=#${sections[i].id}>${sections[i].getAttribute('data-nav')}</a>`;      // assigning text to li using array value.
 
     navMenu.appendChild(navItem);     // append li to ul.
 }
