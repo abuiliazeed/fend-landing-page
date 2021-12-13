@@ -71,6 +71,13 @@ section {
 }
 
 .navbar__menu li {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    float: left;
+    font-size: large;
+    color: #000;
     display: inline-block;
 }
 
