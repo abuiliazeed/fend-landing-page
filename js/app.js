@@ -25,7 +25,6 @@
 
 
 var sections = [...document.querySelectorAll('section')];
-var navArray = [""];
 var navMenu = document.getElementById('navbar__list');
 // console.dir(sections);
 /**
@@ -33,6 +32,16 @@ var navMenu = document.getElementById('navbar__list');
  * Start Helper Functions
  * 
 */
+
+// Scroll to anchor ID using scrollTO event
+function smoothScroll(element){
+    var rect = element.getBoundingClientRect();
+    console.log(rect.top, rect.right, rect.bottom, rect.left);
+    window.scrollTo({
+        top: rect.top,
+        behavior: 'smooth'
+      });
+    }
 
 
 
@@ -44,20 +53,32 @@ var navMenu = document.getElementById('navbar__list');
 
 // build the nav
 for (i = 0; i <= sections.length - 1; i++) {
-    var navItem = document.createElement('li');     // create li element.
-
-    navItem.innerHTML = `<a href=#${sections[i].id}>${sections[i].getAttribute('data-nav')}</a>`;      // assigning text to li using array value.
-
+    var navItem = document.createElement('li');
+    var elID = `section${i+1}`;
+    console.log(elID);
+    var element = document.getElementById(elID);
+    console.log(element);
+    navItem.textContent = sections[i].getAttribute('data-nav');
+    console.log(sections[i].getAttribute('data-nav'));
+    // navItem.innerHTML = `<a href=#${sections[i].id}>${sections[i].getAttribute('data-nav')}</a>`;      // assigning text to li using array value.
+    navItem.addEventListener('click',function(){
+        var rect = element.getBoundingClientRect();
+        console.log(rect.top, rect.right, rect.bottom, rect.left);
+        window.scrollTo({
+            top: rect.top,
+            behavior: 'smooth'
+          });});   
     navMenu.appendChild(navItem);     // append li to ul.
 }
+
 
 
 
 // Add class 'active' to section when near top of viewport
 
 
-// Scroll to anchor ID using scrollTO event
 
+  
 
 /**
  * End Main Functions
