@@ -25,7 +25,6 @@
 
 
 var sections = [...document.querySelectorAll('section')];
-var navArray = [""];
 var navMenu = document.getElementById('navbar__list');
 // console.dir(sections);
 /**
@@ -34,7 +33,14 @@ var navMenu = document.getElementById('navbar__list');
  * 
 */
 
-
+// Scroll to anchor ID using scrollTO event
+function smoothScroll(ele){
+    let rect = ele.getBoundingClientRect();
+    window.scrollTo({
+        top: rect.top + window.scrollY,
+        behavior: 'smooth'
+      });
+    }
 
 /**
  * End Helper Functions
@@ -43,21 +49,39 @@ var navMenu = document.getElementById('navbar__list');
 */
 
 // build the nav
-for (i = 0; i <= sections.length - 1; i++) {
-    var navItem = document.createElement('li');     // create li element.
-    // navItem.innerHTML = `<a href=#${sections[i].id}>${sections[i].id}</a>`;      // assigning text to li using array value.
-    navItem.innerHTML = `<a href=#${sections[i].id}>${sections[i].getAttribute('data-nav')}</a>`;      // assigning text to li using array value.
+// for (i = 0; i <= sections.length - 1; i++) {
+//     let navItem = document.createElement('li');
+//     let elID = `section${i+1}`;
+//     navItem.setAttribute('onclick',`smoothScroll(${elID})`);
+//     navItem.textContent=`${sections[i].getAttribute('data-nav')}`;
+//     // navItem.innerHTML = `<a  href=#${sections[i].id}>${sections[i].getAttribute('data-nav')}</a>`;      // assigning text to li using array value.
+  
+//     navMenu.appendChild(navItem);     // append li to ul.
+// }
 
+for (i = 0; i <= sections.length - 1; i++) {
+    let navItem = document.createElement('li');
+    let elID = `section${i+1}`;
+    let aEl = document.createElement('a');
+    aEl.setAttribute('href',`javascript:smoothScroll(${elID})`);
+    aEl.textContent=`${sections[i].getAttribute('data-nav')}`;
+    navItem.appendChild(aEl);
     navMenu.appendChild(navItem);     // append li to ul.
 }
 
 
-
 // Add class 'active' to section when near top of viewport
-
-
-// Scroll to anchor ID using scrollTO event
-
+function scrollCheck() {
+    for (i = 0; i <= sections.length - 1; i++) {
+        let elID = `section${i+1}`;
+        let ele = document.getElementById(elID);
+        let rect = ele.getBoundingClientRect();
+        console.log(rect.top);
+        if(rect.top < 100){ele.classList.add('your-active-class');}
+        else{ele.classList.remove('your-active-class');}
+    } 
+  }
+window.onscroll = function() {scrollCheck()};
 
 /**
  * End Main Functions
