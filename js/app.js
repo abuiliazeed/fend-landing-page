@@ -37,7 +37,7 @@ var navMenu = document.getElementById('navbar__list');
 function smoothScroll(ele){
     let rect = ele.getBoundingClientRect();
     window.scrollTo({
-        top: rect.top,
+        top: rect.top + window.scrollY,
         behavior: 'smooth'
       });
     }
