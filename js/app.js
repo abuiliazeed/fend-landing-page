@@ -42,8 +42,6 @@ function smoothScroll(ele){
       });
     }
 
-
-
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -51,13 +49,23 @@ function smoothScroll(ele){
 */
 
 // build the nav
+// for (i = 0; i <= sections.length - 1; i++) {
+//     let navItem = document.createElement('li');
+//     let elID = `section${i+1}`;
+//     navItem.setAttribute('onclick',`smoothScroll(${elID})`);
+//     navItem.textContent=`${sections[i].getAttribute('data-nav')}`;
+//     // navItem.innerHTML = `<a  href=#${sections[i].id}>${sections[i].getAttribute('data-nav')}</a>`;      // assigning text to li using array value.
+  
+//     navMenu.appendChild(navItem);     // append li to ul.
+// }
+
 for (i = 0; i <= sections.length - 1; i++) {
     let navItem = document.createElement('li');
     let elID = `section${i+1}`;
-    navItem.setAttribute('onclick',`smoothScroll(${elID})`);
-    navItem.textContent=`${sections[i].getAttribute('data-nav')}`;
-    // navItem.innerHTML = `<a  href=#${sections[i].id}>${sections[i].getAttribute('data-nav')}</a>`;      // assigning text to li using array value.
-  
+    let aEl = document.createElement('a');
+    aEl.setAttribute('href',`javascript:smoothScroll(${elID})`);
+    aEl.textContent=`${sections[i].getAttribute('data-nav')}`;
+    navItem.appendChild(aEl);
     navMenu.appendChild(navItem);     // append li to ul.
 }
 
