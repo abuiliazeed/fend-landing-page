@@ -23,8 +23,10 @@
  * 
 */
 
+// sections variable is an Array populated with section tag elements
+var sections = [...document.querySelectorAll('section')]; 
 
-var sections = [...document.querySelectorAll('section')];
+//navMenu is a Variable that contain the navbar_list element we will use it as a parent to append navItems to it Later
 var navMenu = document.getElementById('navbar__list');
 // console.dir(sections);
 /**
@@ -33,54 +35,68 @@ var navMenu = document.getElementById('navbar__list');
  * 
 */
 
-// Scroll to anchor ID using scrollTO event
+// smoothScroll is a helper function that scroll smoothly to a elemnt using the scrollTo
 function smoothScroll(ele){
+    //getting the element position relative to the viewport
     let rect = ele.getBoundingClientRect();
+
+    //scrolling to the element coordinates notice that we add window.scrollY in order to take into considration our scrolling
     window.scrollTo({
         top: rect.top + window.scrollY,
         behavior: 'smooth'
       });
     }
 
+// isInviewport is a helper function that check if the element is near the top of the viewport or not
+function isInViewport(ele) {
+        var rect = ele.getBoundingClientRect();
+        // returning true if the element bottom is visible and the top is near the top of the view port
+        return (
+            rect.top >= -10 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+        );
+    };
 /**
  * End Helper Functions
  * Begin Main Functions
  * 
 */
 
-// build the nav
-// for (i = 0; i <= sections.length - 1; i++) {
-//     let navItem = document.createElement('li');
-//     let elID = `section${i+1}`;
-//     navItem.setAttribute('onclick',`smoothScroll(${elID})`);
-//     navItem.textContent=`${sections[i].getAttribute('data-nav')}`;
-//     // navItem.innerHTML = `<a  href=#${sections[i].id}>${sections[i].getAttribute('data-nav')}</a>`;      // assigning text to li using array value.
-  
-//     navMenu.appendChild(navItem);     // append li to ul.
-// }
-
+// We will loop the entire DOM to fetch all section elements using a for loop over the sections array items
 for (i = 0; i <= sections.length - 1; i++) {
+    // we create li elements and store it in a navItem
     let navItem = document.createElement('li');
+
+    // we assign section id to elID to be used later for navigation
     let elID = `section${i+1}`;
+
+    // we create an anchor element and store it in aEl
     let aEl = document.createElement('a');
+
+    // we set the href attribute to execute a smoothScroll function to desired section element
     aEl.setAttribute('href',`javascript:smoothScroll(${elID})`);
+
+    // we get the anchor text from the section's data-nav attribute
     aEl.textContent=`${sections[i].getAttribute('data-nav')}`;
+
+    // we append the anchor element to the li element
     navItem.appendChild(aEl);
-    navMenu.appendChild(navItem);     // append li to ul.
+
+    // we append the li element to the ul element
+    navMenu.appendChild(navItem);     
 }
 
-
-// Add class 'active' to section when near top of viewport
-function scrollCheck() {
+// the scrollCheck function Add class 'active' to section when near top of viewport using the scrollCheck 
+  function scrollCheck() {
     for (i = 0; i <= sections.length - 1; i++) {
         let elID = `section${i+1}`;
         let ele = document.getElementById(elID);
-        let rect = ele.getBoundingClientRect();
-        console.log(rect.top);
-        if(rect.top < 100){ele.classList.add('your-active-class');}
+        // if the element is near the top of viewport we add the your-active-class and remove it if it is not
+        if(isInViewport(ele)){ele.classList.add('your-active-class');}
         else{ele.classList.remove('your-active-class');}
     } 
   }
+// we call the the scrollCheck function only if any scrolling happens
 window.onscroll = function() {scrollCheck()};
 
 /**
@@ -88,11 +104,4 @@ window.onscroll = function() {scrollCheck()};
  * Begin Events
  * 
 */
-
-// Build menu 
-
-// Scroll to section on link click
-
-// Set sections as active
-
 
