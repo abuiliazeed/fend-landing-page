@@ -62,14 +62,18 @@ for (i = 0; i <= sections.length - 1; i++) {
 }
 
 
-
-
-
 // Add class 'active' to section when near top of viewport
-
-
-
-  
+function scrollCheck() {
+    for (i = 0; i <= sections.length - 1; i++) {
+        let elID = `section${i+1}`;
+        let ele = document.getElementById(elID);
+        let rect = ele.getBoundingClientRect();
+        console.log(rect.top);
+        if(rect.top < 100){ele.classList.add('your-active-class');}
+        else{ele.classList.remove('your-active-class');}
+    } 
+  }
+window.onscroll = function() {scrollCheck()};
 
 /**
  * End Main Functions
