@@ -52,8 +52,8 @@ function isInViewport(ele) {
         var rect = ele.getBoundingClientRect();
         // returning true if the element bottom is visible and the top is near the top of the view port
         return (
-            rect.top >= -10 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+            rect.top >= -10 && rect.top <=300
+            // rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
         );
     };
 /**
@@ -66,7 +66,6 @@ function isInViewport(ele) {
 function buildNavBar(){for (i = 0; i <= sections.length - 1; i++) {
     // we create li elements and store it in a navItem
     let navItem = document.createElement('li');
-
 
     // we assign section id to elID to be used later for navigation
     let elID = `section${i+1}`;
