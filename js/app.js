@@ -52,7 +52,7 @@ function isInViewport(ele) {
         var rect = ele.getBoundingClientRect();
         // returning true if the element bottom is visible and the top is near the top of the view port
         return (
-            rect.top >= -10 && rect.top <=300
+            rect.top >= -10 && rect.top <=400
             // rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
         );
     };
