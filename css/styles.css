@@ -70,6 +70,9 @@ section {
     text-align: right;
 }
 
+.li-active{
+    background-color:aquamarine;
+}
 .navbar__menu li {
     padding-left: 15px;
     padding-right: 15px;
