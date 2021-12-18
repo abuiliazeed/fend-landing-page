@@ -52,8 +52,7 @@ function isInViewport(ele) {
         var rect = ele.getBoundingClientRect();
         // returning true if the element bottom is visible and the top is near the top of the view port
         return (
-            rect.top >= -10 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+            rect.top >= -10 && rect.top <=400
         );
     };
 /**
@@ -67,9 +66,11 @@ function buildNavBar(){for (i = 0; i <= sections.length - 1; i++) {
     // we create li elements and store it in a navItem
     let navItem = document.createElement('li');
 
-
     // we assign section id to elID to be used later for navigation
     let elID = `section${i+1}`;
+
+    //we  add id to the li element
+    navItem.setAttribute('id',`${i+1}`);
 
     // we create an anchor element and store it in aEl
     let aEl = document.createElement('a');
@@ -96,9 +97,15 @@ window.addEventListener('DOMContentLoaded', (event) => buildNavBar());
     for (i = 0; i <= sections.length - 1; i++) {
         let elID = `section${i+1}`;
         let ele = document.getElementById(elID);
+        let liId = i+1;
+        let liEl = document.getElementById(liId);
         // if the element is near the top of viewport we add the your-active-class and remove it if it is not
-        if(isInViewport(ele)){ele.classList.add('your-active-class');}
-        else{ele.classList.remove('your-active-class');}
+        if(isInViewport(ele)){
+          ele.classList.add('your-active-class');
+          liEl.classList.add('li-active');}
+        else{
+          ele.classList.remove('your-active-class');
+          liEl.classList.remove('li-active');}
     } 
   }
 // we call the the scrollCheck function only if any scrolling happens
