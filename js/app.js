@@ -63,15 +63,19 @@ function isInViewport(ele) {
 */
 
 // We will loop the entire DOM to fetch all section elements using a for loop over the sections array items
-for (i = 0; i <= sections.length - 1; i++) {
+function buildNavBar(){for (i = 0; i <= sections.length - 1; i++) {
     // we create li elements and store it in a navItem
     let navItem = document.createElement('li');
+
 
     // we assign section id to elID to be used later for navigation
     let elID = `section${i+1}`;
 
     // we create an anchor element and store it in aEl
     let aEl = document.createElement('a');
+
+    //adding menu__link class to the anchors
+    aEl.classList.add('menu__link');
 
     // we set the href attribute to execute a smoothScroll function to desired section element
     aEl.setAttribute('href',`javascript:smoothScroll(${elID})`);
@@ -84,8 +88,9 @@ for (i = 0; i <= sections.length - 1; i++) {
 
     // we append the li element to the ul element
     navMenu.appendChild(navItem);     
-}
-
+}}
+// Note that the Navigation is built after all the DOM elements are fully loaded
+window.addEventListener('DOMContentLoaded', (event) => buildNavBar());
 // the scrollCheck function Add class 'active' to section when near top of viewport using the scrollCheck 
   function scrollCheck() {
     for (i = 0; i <= sections.length - 1; i++) {
