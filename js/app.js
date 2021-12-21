@@ -63,7 +63,9 @@ function isInViewport(ele) {
 */
 
 // We will loop the entire DOM to fetch all section elements using a for loop over the sections array items
-function buildNavBar(){for (i = 0; i <= sections.length - 1; i++) {
+function buildNavBar(){
+  let docFrag = document.createDocumentFragment();
+  for (i = 0; i <= sections.length - 1; i++) {
     // we create li elements and store it in a navItem
     let navItem = document.createElement('li');
 
@@ -89,8 +91,10 @@ function buildNavBar(){for (i = 0; i <= sections.length - 1; i++) {
     navItem.appendChild(aEl);
 
     // we append the li element to the ul element
-    navMenu.appendChild(navItem);     
-}}
+    docFrag.appendChild(navItem);     
+  }
+  navMenu.appendChild(docFrag);
+}
 // Note that the Navigation is built after all the DOM elements are fully loaded
 window.addEventListener('DOMContentLoaded', (event) => buildNavBar());
 // the scrollCheck function Add class 'active' to section when near top of viewport using the scrollCheck 
