@@ -73,10 +73,8 @@ section {
     .navbar__list li:not(:first-child) {display: none;}
     .icon {
         color: black;
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-top: 10px;
-        padding-bottom: 10px;
+        font-size: 1.5em;
+        padding: 10px;
         float: right;
         display: block;
     }
@@ -85,11 +83,9 @@ section {
 @media screen and (max-width: 600px) {
     .navbar__list.responsive {position: relative;}
     .icon {
+        padding: 10px;
+        font-size: 1.5em;
         color: black;
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-top: 10px;
-        padding-bottom: 10px;        
         position: absolute;
         right: 0;
         top: 0;
@@ -102,8 +98,8 @@ section {
 }
 
 .navbar__menu ul {
-    padding-left: 0;
-    margin: 0;
+    padding: 5px;
+    margin: 5px;
     text-align: right;
 }
 
@@ -111,10 +107,7 @@ section {
     background-color:aquamarine;
 }
 .navbar__menu li {
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding: 15px;
     float: left;
     font-family: 'Fira Sans', sans-serif;
     font-size: 1em;
