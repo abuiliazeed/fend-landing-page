@@ -24,10 +24,10 @@
 */
 
 // sections variable is an Array populated with section tag elements
-var sections = [...document.querySelectorAll('section')]; 
+const sections = [...document.querySelectorAll('section')]; 
 
 //navMenu is a Variable that contain the navbar_list element we will use it as a parent to append navItems to it Later
-var navMenu = document.getElementById('navbar__list');
+const navMenu = document.getElementById('navbar__list');
 // console.dir(sections);
 /**
  * End Global Variables
@@ -49,7 +49,7 @@ function smoothScroll(ele){
 
 // isInviewport is a helper function that check if the element is near the top of the viewport or not
 function isInViewport(ele) {
-        var rect = ele.getBoundingClientRect();
+        let rect = ele.getBoundingClientRect();
         // returning true if the element bottom is visible and the top is near the top of the view port
         return (
             rect.top >= -10 && rect.top <=400
@@ -104,6 +104,7 @@ window.addEventListener('DOMContentLoaded', (event) => buildNavBar());
         let ele = document.getElementById(elID);
         let liId = i+1;
         let liEl = document.getElementById(liId);
+        // adding the highlight functionality
         // if the element is near the top of viewport we add the your-active-class and remove it if it is not
         if(isInViewport(ele)){
           ele.classList.add('your-active-class');
