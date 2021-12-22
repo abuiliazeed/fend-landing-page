@@ -64,6 +64,43 @@ section {
 /* ---- Module Rules ---- */
 
 /* Navigation Styles*/
+
+
+.icon {
+    display: none;
+  }
+@media screen and (max-width: 600px) {
+    .navbar__list li:not(:first-child) {display: none;}
+    .icon {
+        color: black;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        float: right;
+        display: block;
+    }
+  }
+ 
+@media screen and (max-width: 600px) {
+    .navbar__list.responsive {position: relative;}
+    .icon {
+        color: black;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;        
+        position: absolute;
+        right: 0;
+        top: 0;
+}
+    .navbar__list.responsive li{
+        float: none;
+        display: block;
+        text-align: left;
+    }
+}
+
 .navbar__menu ul {
     padding-left: 0;
     margin: 0;
