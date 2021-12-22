@@ -64,9 +64,42 @@ section {
 /* ---- Module Rules ---- */
 
 /* Navigation Styles*/
+
+
+.icon {
+    display: none;
+  }
+@media screen and (max-width: 600px) {
+    .navbar__list li:not(:first-child) {display: none;}
+    .icon {
+        color: black;
+        font-size: 1.5em;
+        padding: 10px;
+        float: right;
+        display: block;
+    }
+  }
+ 
+@media screen and (max-width: 600px) {
+    .navbar__list.responsive {position: relative;}
+    .icon {
+        padding: 10px;
+        font-size: 1.5em;
+        color: black;
+        position: absolute;
+        right: 0;
+        top: 0;
+}
+    .navbar__list.responsive li{
+        float: none;
+        display: block;
+        text-align: left;
+    }
+}
+
 .navbar__menu ul {
-    padding-left: 0;
-    margin: 0;
+    padding: 5px;
+    margin: 5px;
     text-align: right;
 }
 
@@ -74,12 +107,10 @@ section {
     background-color:aquamarine;
 }
 .navbar__menu li {
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding: 15px;
     float: left;
-    font-size: large;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1em;
     color: #000;
     display: inline-block;
 }

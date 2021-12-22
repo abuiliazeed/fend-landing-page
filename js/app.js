@@ -104,7 +104,7 @@ window.addEventListener('DOMContentLoaded', (event) => buildNavBar());
         let ele = document.getElementById(elID);
         let liId = i+1;
         let liEl = document.getElementById(liId);
-        // adding the highlight functionality
+        // adding the highlight functionality for the menu 
         // if the element is near the top of viewport we add the your-active-class and remove it if it is not
         if(isInViewport(ele)){
           ele.classList.add('your-active-class');
@@ -117,6 +117,14 @@ window.addEventListener('DOMContentLoaded', (event) => buildNavBar());
 // we call the the scrollCheck function only if any scrolling happens
 window.onscroll = function() {scrollCheck()};
 
+function responsiveMenu() {
+  let ele = document.getElementById("navbar__list");
+  if (ele.className === "navbar__list") {
+    ele.classList.add('responsive');
+  } else {
+    ele.className = "navbar__list";
+  }
+}
 /**
  * End Main Functions
  * Begin Events
